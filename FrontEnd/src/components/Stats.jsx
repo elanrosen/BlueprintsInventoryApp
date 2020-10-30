@@ -2,7 +2,7 @@ import React from 'react';
 
 class Stats extends React.Component {
   render() {
-    return <p>Stats</p>;
+    return <p>Stat2s</p>;
   }
 }
 
