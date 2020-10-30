@@ -1,143 +1,60 @@
 import React from 'react';
-import Authentication from 'utils/Auth';
+import {
+  Link,
+} from 'react-router-dom';
 
-class Login extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {firstname: '', 
-      lastname: '',
-      email: '',
-      eventpass: '',
-      org: '',
-      event:''};
-    this.handleChange = this.handleChange.bind(this);
-    this.handleSubmit = this.handleSubmit.bind(this)
-  }
-
-  handleChange(event) {
-    const target = event.target
-  	const value = target.value
-  	const name = target.name
-  	this.setState(
-  		{[name]: value}
-  	)
-  }
-
-  handleSubmit(event, login) {
-    event.preventDefault();
-    login("test_userid", "test_eventToken");
-  }
-
+class Stats extends React.Component {
   render() {
-    //const { value } = this.state;
     return (
-        <Authentication.Consumer>
-          {(auth) => (
-            <div className="h-screen">
-              <div className="flex justify-center items-end h-2/5">
+      <div className="h-screen">
+        <div className="flex h-1/5 items-end justify-center">
+          <div className="flex justify-center items-end h-1/5">
                 <img
-                  src={require('assets/images/Blueprints_Logo2.png')} 
+                  src={require('assets/images/Blueprints_Logo4.png')} 
                   alt = "Logo"
-                  className="w-10/12 max-w-xs object-contain"
+                  className="w-1/12 object-contain"
                 />
               </div>
-              
-              <div className="flex justify-center items-center py-sm">
-                <h1 className="section_header font-semibold text-dark_blue">Log In</h1>
-              </div>
+        </div>
+        <div className="h-1/10 flex items-end justify-center">
+        <h1 className="page_header font-semibold">Statistics</h1>
+        </div>
 
-              <div className="flex justify-center items-start h-2/5">
-                
-                <form 
-                  onSubmit={(event) => this.handleSubmit(event, auth.setLogin)} 
-                  className="w-11/12"
-                >
-                  <div className="flex items-center my-sm whitespace-no-wrap">
-                    <div className="w-1/3">
-                      <label className="block text-right mx-md">
-                        First Name
-                      </label>
-                    </div>
-                    <div className="w-2/3">
-                      <input 
-                        name="firstname"
-                        type="text" 
-                        value={this.state.firstname} 
-                        onChange={this.handleChange} 
-                        placeholder="First"
-                        className="bg-gray-200 border-2 border-gray-200 rounded w-full focus:outline-none focus:bg-white focus:border-light_blue"
-                      />
-                    </div>
-                  </div>
+        <div className="flex  items-center justify-center my-md mx-md">
+          <p className="text-2xl paragraph text-center">
+          Today, you have inventoried
+          </p>
+        </div>
+        <div className="flex  items-end justify-center">
+          <h1 className="page_header font-semibold">256</h1>
+        </div>
+        <div className="flex  items-center justify-center my-md mx-md">
+          <p className="text-2xl paragraph text-center">
+          medical supplies.
+          </p>
+        </div>
+        <div className="flex  items-center justify-center my-md mx-md">
+          <p className="text-2xl paragraph text-center">
+          Today, you have inventoried
+          </p>
+        </div>
+        <div className="flex items-end justify-center">
+          <h1 className="page_header font-semibold">1,850</h1>
+        </div>
+        <div className="flex justify-center items-end">
 
-                  <div className="flex items-center my-sm whitespace-no-wrap">
-                    <div className="w-1/3">
-                      <label className="block text-right mx-md">
-                        Last Name
-                      </label>
-                    </div>
-                    <div className="w-2/3">
-                      <input 
-                        name = "lastname"
-                        type="text" 
-                        value={this.state.lastname}
-                        onChange={this.handleChange}
-                        placeholder="Last"
-                        className="bg-gray-200 border-2 border-gray-200 rounded w-full focus:outline-none focus:bg-white focus:border-light_blue"  
-                      />
-                    </div>
-                  </div>
-
-                  <div className="flex items-center my-sm whitespace-no-wrap">
-                    <div className="w-1/3">
-                      <label className="block text-right mx-md">
-                        Email
-                      </label>
-                    </div>
-                    <div className="w-2/3">
-                      <input 
-                        name = "email"
-                        type = "text"
-                        value={this.state.email}
-                        onChange={this.handleChange}
-                        placeholder="email@domain"
-                        className="bg-gray-200 border-2 border-gray-200 rounded w-full focus:outline-none focus:bg-white focus:border-light_blue"
-                      />
-                    </div>
-                  </div>
-
-                  <div className="flex items-center my-sm whitespace-no-wrap">
-                    <div className="w-1/3">
-                      <label className="block text-right mx-md">
-                        Event Token
-                      </label>
-                    </div>
-                    <div className="w-2/3">
-                      <input 
-                        name = "eventpass"
-                        type = "text"
-                        value={this.state.eventpass}
-                        onChange={this.handleChange}
-                        placeholder="sdkfa2938"
-                        className="bg-gray-200 border-2 border-gray-200 rounded w-full focus:outline-none focus:bg-white focus:border-light_blue"
-                      />
-                    </div>
-                  </div>
-
-                  <div className="flex justify-center pt-md">
+              <div className="flex justify-center pt-md">
                     <input
                       type="submit"
-                      value="Login"
-                      className="pill_button w-full"
+                      value="Log out"
+                      className="pill_button w-full "
                     />
                   </div>
-                </form>
-              </div>
-            </div>
-          )}
-        </Authentication.Consumer>
+      </div></div>
+      
+       
     );
   }
 }
 
-export default Login;
+export default Stats;
